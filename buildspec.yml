@@ -4,6 +4,7 @@ phases:
     commands:
       - 'dotnet restore'
       - 'dotnet publish -c Release'
+      - 'cd CoreLambda'
       - 'cd bin/Release/netcoreapp1.0/publish'
       - 'zip ../../../../MyProject.zip *'
       - 'cd ../../../..'
