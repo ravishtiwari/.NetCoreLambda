@@ -7,6 +7,7 @@ phases:
     commands:
       - 'dotnet build -c Release OpenApiNetCore/OpenApiNetCore.csproj'
       - 'dotnet publish -c Release OpenApiNetCore/OpenApiNetCore.csproj'
+      - 'zip OpenApiNetCore.zip OpenApiNetCore/bin/Release/netcoreapp1.0/publish/*'
 artifacts:
   type: zip
-  files: OpenApiNetCore/bin/Release/netcoreapp1.0/publish/
+  files: OpenApiNetCore.zip
