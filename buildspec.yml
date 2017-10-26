@@ -11,7 +11,3 @@ phases:
   post_build:
     commands:
       - 'zip OpenApiNetCore.zip OpenApiNetCore/bin/Release/netcoreapp1.0/publish/*'
-artifacts:
-  type: zip
-  files:
-    - OpenApiNetCore.zip
