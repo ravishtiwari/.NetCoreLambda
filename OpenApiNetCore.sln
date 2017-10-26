@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenApiNetCore", "OpenApiNetCore\OpenApiNetCore.csproj", "{FE25DCBE-4288-422F-B0D4-50628B7D1358}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenApiNetCore.Tests", "OpenApiNetCore.Tests\OpenApiNetCore.Tests.csproj", "{E6917F13-E800-4D74-B426-92ED8D7E12B7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FE25DCBE-4288-422F-B0D4-50628B7D1358}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE25DCBE-4288-422F-B0D4-50628B7D1358}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE25DCBE-4288-422F-B0D4-50628B7D1358}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE25DCBE-4288-422F-B0D4-50628B7D1358}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6917F13-E800-4D74-B426-92ED8D7E12B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6917F13-E800-4D74-B426-92ED8D7E12B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6917F13-E800-4D74-B426-92ED8D7E12B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6917F13-E800-4D74-B426-92ED8D7E12B7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0579365F-8D0D-4338-8D86-7B249E913163}
+	EndGlobalSection
+EndGlobal
