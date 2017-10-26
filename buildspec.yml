@@ -13,4 +13,6 @@ phases:
       - 'zip OpenApiNetCore.zip OpenApiNetCore/bin/Release/netcoreapp1.0/publish/*'
 artifacts:
   files:
-    - OpenApiNetCore/bin/Release/netcoreapp1.0/publish/
+    - '**/*'
+  base-directory: OpenApiNetCore/bin/Release/netcoreapp1.0/publish/
+  discard-paths: yes
