@@ -4,8 +4,5 @@ phases:
     commands:
       - 'dotnet restore'
       - 'dotnet publish -c Release'
-      - 'cd CoreLambda'
-      - 'cd bin/Release/netcoreapp1.0/publish'
-      - 'zip ../../../../MyProject.zip *'
-      - 'cd ../../../..'
-      - '/root/bin/aws lambda update-function-code --function-name CoreLambda  --zip-file fileb://MyProject.zip'
+      - 'mv CoreLambda/bin/Release/netcoreapp1.0/publish/CoreLambda.zip CoreLambda.zip'
+      - 'aws lambda update-function-code --function-name CoreLambda  --zip-file fileb://CoreLambda.zip'
