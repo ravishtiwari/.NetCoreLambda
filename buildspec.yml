@@ -1,6 +1,12 @@
 version: 0.2
 phases:
+  install:
+    commands:
+      - 'dotnet restore'    
   build:
     commands:
-      - 'dotnet restore'
-      - 'dotnet publish -c Release'
+      - 'dotnet build -c Release OpenApiNetCore/OpenApiNetCore.csproj'
+      - 'dotnet publish -c Release OpenApiNetCore/OpenApiNetCore.csproj'
+artifacts:
+  type: zip
+  files: OpenApiNetCore/bin/Release/netcoreapp1.0/publish/
