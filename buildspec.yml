@@ -1,13 +1,11 @@
 phases:
   install:
     commands:
-      - echo Starting Package Restore at `date`
-      - 'dotnet restore'
+      - "dotnet restore"
   build:
     commands:
-      - echo Starting Build
-      - 'dotnet build -c Release'
-      - 'dotnet publish -c Release'
-  post_build:
+      - "dotnet build -c Release"
+      - "dotnet publish -c Release"
+  post_build: 
     commands:
-      - 'zip OpenApiNetCore.zip OpenApiNetCore/bin/Release/netcoreapp1.0/publish/*'
+      - "zip OpenApiNetCore.zip OpenApiNetCore/bin/Release/netcoreapp1.0/publish/*"
