@@ -1,8 +1,15 @@
 version: 0.2
 phases:
+  install:
+    commands:
+      - echo Starting Package Restore at `date`
+      - 'dotnet restore'
   build:
     commands:
-      - 'dotnet restore'
+      - 'dotner build -c Release'
       - 'dotnet publish -c Release'
-      - 'zip CoreLambda.zip CoreLambda/bin/Release/netcoreapp1.0/publish/*'
-      - 'aws lambda update-function-code --function-name CoreLambda  --zip-file fileb://CoreLambda.zip'
+      - 'zip OpenApiNetCore.zip OpenApiNetCore/bin/Release/netcoreapp1.0/publish/*'
+  artifacts:
+    files:
+        - OpenApiNetCore.zip
+    

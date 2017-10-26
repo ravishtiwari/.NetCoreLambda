@@ -3,9 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenApiNetCore", "OpenApiNetCore\OpenApiNetCore.csproj", "{FE25DCBE-4288-422F-B0D4-50628B7D1358}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenApiNetCore", "OpenApiNetCore\OpenApiNetCore.csproj", "{FE25DCBE-4288-422F-B0D4-50628B7D1358}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenApiNetCore.Tests", "OpenApiNetCore.Tests\OpenApiNetCore.Tests.csproj", "{E6917F13-E800-4D74-B426-92ED8D7E12B7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenApiNetCore.Tests", "OpenApiNetCore.Tests\OpenApiNetCore.Tests.csproj", "{E6917F13-E800-4D74-B426-92ED8D7E12B7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E71A6743-CE51-44CD-A149-F8458CC2A69D}"
+	ProjectSection(SolutionItems) = preProject
+		buildspec.yml = buildspec.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
