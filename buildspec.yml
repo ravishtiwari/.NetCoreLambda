@@ -1,11 +1,11 @@
 phases:
   install:
     commands:
-      - 'echo Starting Package Restore at `date`'
+      - echo Starting Package Restore at `date`
       - 'dotnet restore'
   build:
     commands:
-      - 'echo Starting Build'
+      - echo Starting Build
       - 'dotnet build -c Release'
       - 'dotnet publish -c Release'
   post_build:
