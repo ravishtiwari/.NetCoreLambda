@@ -8,8 +8,7 @@ phases:
     commands:
       - 'dotner build -c Release'
       - 'dotnet publish -c Release'
-      - 'zip OpenApiNetCore.zip OpenApiNetCore/bin/Release/netcoreapp1.0/publish/*'
   artifacts:
     files:
-        - OpenApiNetCore.zip
+      - OpenApiNetCore/bin/Release/netcoreapp1.0/publish/*
     
