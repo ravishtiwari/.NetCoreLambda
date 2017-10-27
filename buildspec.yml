@@ -10,9 +10,9 @@ phases:
       - echo Build started  on `date`
       - 'dotnet build -c Release OpenApiNetCore/OpenApiNetCore.csproj'
       - 'dotnet publish -c Release OpenApiNetCore/OpenApiNetCore.csproj'
-      - 'zip OpenApiNetCore.zip OpenApiNetCore/bin/Release/netcoreapp1.0/publish/*'
+      - 'zip OpenApiNetCore/bin/Release/netcoreapp1.0/OpenApiNetCore.zip OpenApiNetCore/bin/Release/netcoreapp1.0/publish/*'
 artifacts:
   files:
-    - '**/*'
-  base-directory: OpenApiNetCore/bin/Release/netcoreapp1.0/publish/
+    - 'OpenApiNetCore.zip'
+  base-directory: OpenApiNetCore/bin/Release/netcoreapp1.0/
   discard-paths: yes
