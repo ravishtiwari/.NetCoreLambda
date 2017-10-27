@@ -11,9 +11,9 @@ phases:
       - 'dotnet build -c Release OpenApiNetCore/OpenApiNetCore.csproj'
       - 'dotnet publish -c Release OpenApiNetCore/OpenApiNetCore.csproj'
       - 'zip OpenApiNetCore/bin/Release/netcoreapp1.0/OpenApiNetCore.zip OpenApiNetCore/bin/Release/netcoreapp1.0/publish/*'
+      - aws s3 cp OpenApiNetCore/bin/Release/netcoreapp1.0/OpenApiNetCore.zip s3://code-build-artifacts-aws/OpenApiNetCore.zip
+      - aws cloudformation package --template-file template.yaml --s3-bucket $S3_BUCKET --output-template-file template-export.yaml
 artifacts:
   type: zip
   files:
-    - 'OpenApiNetCore.zip'
-  base-directory: OpenApiNetCore/bin/Release/netcoreapp1.0/
-  discard-paths: yes
+    - template-export.yaml
