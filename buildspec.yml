@@ -12,6 +12,7 @@ phases:
       - 'dotnet publish -c Release OpenApiNetCore/OpenApiNetCore.csproj'
       - 'zip OpenApiNetCore/bin/Release/netcoreapp1.0/OpenApiNetCore.zip OpenApiNetCore/bin/Release/netcoreapp1.0/publish/*'
 artifacts:
+  type: zip
   files:
     - 'OpenApiNetCore.zip'
   base-directory: OpenApiNetCore/bin/Release/netcoreapp1.0/
