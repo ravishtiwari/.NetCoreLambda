@@ -17,6 +17,7 @@ phases:
       - echo List directories
       - ls -las
       - ls -las OpenApiNetCore/bin/Release/netcoreapp1.0/publish/
+      - echo Build complete on `date`
 artifacts:
   type: zip
   files:
