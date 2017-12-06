@@ -5,7 +5,7 @@ Transform:
 Parameters:
   ProjectId:
     Type: String
-    Description: 
+    Description: OpenAPI Spike
 
 Resources:
   OpenAPI.Applicant:
