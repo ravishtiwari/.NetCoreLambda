@@ -2,11 +2,6 @@
 Transform:
 - AWS::Serverless-2016-10-31
 
-Parameters:
-  ProjectId:
-    Type: String
-    Description: OpenAPI Spike
-
 Resources:
   OpenAPI_Applicant:
     Type: AWS::Serverless::Function
@@ -15,9 +10,6 @@ Resources:
       Runtime: dotnetcore1.0
       MemorySize: 256
       Timeout: 30
-      Role:
-        Fn::ImportValue:
-          !Join ['-', [!Ref 'ProjectId', !Ref 'AWS::Region', 'LambdaTrustRole']]
       Events:
         GetEvent:
           Type: Api
