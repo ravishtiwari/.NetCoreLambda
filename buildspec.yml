@@ -14,8 +14,10 @@ phases:
       #- aws s3 cp OpenApiNetCore/bin/Release/netcoreapp1.0/OpenApiNetCore.zip s3://$S3_BUCKET/OpenApiNetCore.zip
       - cp template.yaml OpenApiNetCore/bin/Release/netcoreapp1.0/publish/template.yaml
       - cd OpenApiNetCore/bin/Release/netcoreapp1.0/publish/
+      - ls -las
       - aws cloudformation package --template-file template.yaml --s3-bucket $S3_BUCKET --output-template-file template-export.yaml
       - cd ../../../../../
+      - ls -las
       - cp OpenApiNetCore/bin/Release/netcoreapp1.0/publish/template-export.yaml template-export.yaml
 artifacts:
   type: zip
