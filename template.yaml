@@ -3,7 +3,7 @@ Transform:
 - AWS::Serverless-2016-10-31
 
 Resources:
-  OpenAPI_Applicant:
+  OpenAPIApplicantApi:
     Type: AWS::Serverless::Function
     Properties:
       Handler: OpenApiNetCore::OpenApiNetCore.LambdaEntryPoint::FunctionHandlerAsync
