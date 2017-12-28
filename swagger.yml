@@ -1,0 +1,58 @@
+---
+swagger: "2.0"
+info:
+  version: "2017-12-22T08:40:54Z"
+  title: "ApplicantAPI"
+host: "api.alpha.devca.net"
+basePath: "/applicant"
+schemes:
+- "https"
+paths:
+  /:
+    x-amazon-apigateway-any-method:
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+  /{proxy+}:
+    options:
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Headers:
+              type: "string"
+    x-amazon-apigateway-any-method:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "proxy"
+        in: "path"
+        required: true
+        type: "string"
+      responses: {}
+      security:
+      - PartnerAuthorizer: []
+securityDefinitions:
+  PartnerAuthorizer:
+    type: "apiKey"
+    name: "Authorization"
+    in: "header"
+    x-amazon-apigateway-authtype: "cognito_user_pools"
+definitions:
+  Empty:
+    type: "object"
+    title: "Empty Schema"

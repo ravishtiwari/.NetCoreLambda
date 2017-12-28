@@ -2,6 +2,7 @@ version: 0.2
 phases:
   install:
     commands:
+      - pip install --upgrade awscli
       - echo Restore started on `date`
       - 'dotnet restore'
       - echo Restore completed on `date`
@@ -10,15 +11,15 @@ phases:
       - echo Build started  on `date`
       - 'dotnet build -c Release OpenApiNetCore/OpenApiNetCore.csproj'
       - 'dotnet publish -c Release OpenApiNetCore/OpenApiNetCore.csproj'
-      - 'zip OpenApiNetCore/bin/Release/netcoreapp1.0/OpenApiNetCore.zip OpenApiNetCore/bin/Release/netcoreapp1.0/publish/*'
-      - cp template.yaml OpenApiNetCore/bin/Release/netcoreapp1.0/publish/template.yaml
+      #- 'zip OpenApiNetCore/bin/Release/netcoreapp1.0/OpenApiNetCore.zip OpenApiNetCore/bin/Release/netcoreapp1.0/publish/*'
+      - cp template.yml OpenApiNetCore/bin/Release/netcoreapp1.0/publish/template.yml
       - cd OpenApiNetCore/bin/Release/netcoreapp1.0/publish/
       - ls -las
-      - aws cloudformation package --template-file template.yaml --s3-bucket $S3_BUCKET --output-template-file template-export.yaml
+      - aws cloudformation package --template-file template.yml --s3-bucket $S3_BUCKET --output-template-file template-export.yml
       - cd ../../../../../
       - ls -las
-      - cp OpenApiNetCore/bin/Release/netcoreapp1.0/publish/template-export.yaml template-export.yaml
+      - cp OpenApiNetCore/bin/Release/netcoreapp1.0/publish/template-export.yml template-export.yml
 artifacts:
   type: zip
   files:
-    - template-export.yaml
+    - template-export.yml
