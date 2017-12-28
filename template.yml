@@ -1,38 +1,39 @@
-﻿AWSTemplateFormatVersion: '2010-09-09'
+﻿---
+AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
-
+Description: AWS SAM template with API defined in an external Swagger file along with Lambda integrations and CORS configurations
 Resources:
-  OpenAPIApplicantLambda:
+  ApiGatewayApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      DefinitionUri: s3://ca.amit.version.test/swagger.yml
+        StageName: Ravish
+        Variables:
+          # NOTE: Before using this template, replace the <<region>> and <<account>> fields
+          #       in Lambda integration URI in the swagger file to region and accountId 
+          #       you are deploying to
+          LambdaFunctionName: !Ref LambdaFunction
+
+  LambdaFunction:
     Type: AWS::Serverless::Function
     Properties:
       Handler: OpenApiNetCore::OpenApiNetCore.LambdaEntryPoint::FunctionHandlerAsync
       Runtime: dotnetcore1.0
       MemorySize: 256
       Timeout: 30
-      Input:
+      Events:
         ProxyApiRoot:
           Type: Api
           Properties:
-            RestApiId: !Ref OpenAPIApplicantApi
+            RestApiId: !Ref ApiGatewayApi
             Path: /
             Method: ANY
         ProxyApiGreedy:
           Type: Api
           Properties:
-            RestApiId: !Ref OpenAPIApplicantApi
+            RestApiId: !Ref ApiGatewayApi
             Path: /{proxy+}
             Method: ANY
-  
-  OpenAPIApplicantApi:
-      Type: AWS::Serverless::Api
-      Properties:
-        DefinitionUri: s3://ca.amit.version.test/swagger.yml
-        StageName: Ravish
-        Variables:
-          # NOTE: Before using this template, replace the <<region>> and <<account>> fields
-          #       in Lambda integration URI in the swagger file to region and accountId 
-          #       you are deploying to
-          LambdaFunctionName: !Ref OpenAPIApplicantLambda
 
 Outputs:
   ApiUrl:
@@ -40,7 +41,7 @@ Outputs:
     Value: !Join
       - ''
       - - https://
-        - !Ref OpenAPIApplicantApi
+        - !Ref ApiGatewayApi
         - '.execute-api.'
         - !Ref 'AWS::Region'
-        - '.amazonaws.com/Prod'
+        - '.amazonaws.com/Ravish'
